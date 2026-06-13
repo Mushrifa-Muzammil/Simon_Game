@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Simon Game - Rainbow Edition</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Animated Rainbow Background -->
+  <div class="rainbow-bg"></div>
+  
+  <!-- Floating Shapes -->
+  <div class="floating-shape shape-1">🌈</div>
+  <div class="floating-shape shape-2">⭐</div>
+  <div class="floating-shape shape-3">🎵</div>
+  <div class="floating-shape shape-4">🎮</div>
+  <div class="floating-shape shape-5">✨</div>
+  <div class="floating-shape shape-6">🎯</div>
+
+  <!-- Main Game Container -->
+  <div class="glass-container">
+    
+    <!-- Top Decoration -->
+    <div class="top-decoration">
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+    </div>
+
+    <!-- Header with 3D Effect -->
+    <div class="header-3d">
+      <div class="icon-group">
+        <i class="fas fa-dice-d6"></i>
+        <i class="fas fa-brain"></i>
+        <i class="fas fa-memory"></i>
+      </div>
+      <h1 class="rainbow-text">SIMON GAME</h1>
+      <p class="subtitle">Test Your Memory!</p>
+    </div>
+
+    <!-- Level Display - Glowing -->
+    <div class="glowing-card" id="level-title">
+      <div class="glow-border"></div>
+      <div class="card-content">
+        <i class="fas fa-arrow-right"></i>
+        <span>PRESS ANY KEY TO START</span>
+        <i class="fas fa-arrow-left"></i>
+      </div>
+    </div>
+
+    <!-- Premium Difficulty Selector -->
+    <div class="premium-difficulty">
+      <div class="difficulty-card-premium easy-prem" data-diff="easy">
+        <div class="premium-icon">🐢</div>
+        <div class="premium-name">EASY</div>
+        <div class="premium-speed">800ms</div>
+        <div class="premium-glow"></div>
+      </div>
+      <div class="difficulty-card-premium normal-prem active" data-diff="normal">
+        <div class="premium-icon">⭐</div>
+        <div class="premium-name">NORMAL</div>
+        <div class="premium-speed">500ms</div>
+        <div class="premium-glow"></div>
+      </div>
+      <div class="difficulty-card-premium hard-prem" data-diff="hard">
+        <div class="premium-icon">⚡</div>
+        <div class="premium-name">HARD</div>
+        <div class="premium-speed">300ms</div>
+        <div class="premium-glow"></div>
+      </div>
+      <div class="difficulty-card-premium extreme-prem" data-diff="extreme">
+        <div class="premium-icon">🔥</div>
+        <div class="premium-name">EXTREME</div>
+        <div class="premium-speed">150ms</div>
+        <div class="premium-glow"></div>
+      </div>
+    </div>
+
+    <!-- Beautiful Game Buttons -->
+    <div class="game-board">
+      <div class="board-row">
+        <div class="beauty-btn green-beauty" id="green">
+          <div class="btn-front">
+            <i class="fas fa-leaf"></i>
+            <span>GREEN</span>
+            <div class="btn-sound-wave">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="btn-back"></div>
+        </div>
+        <div class="beauty-btn red-beauty" id="red">
+          <div class="btn-front">
+            <i class="fas fa-heart"></i>
+            <span>RED</span>
+            <div class="btn-sound-wave">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="btn-back"></div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="beauty-btn yellow-beauty" id="yellow">
+          <div class="btn-front">
+            <i class="fas fa-sun"></i>
+            <span>YELLOW</span>
+            <div class="btn-sound-wave">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="btn-back"></div>
+        </div>
+        <div class="beauty-btn blue-beauty" id="blue">
+          <div class="btn-front">
+            <i class="fas fa-cloud-moon"></i>
+            <span>BLUE</span>
+            <div class="btn-sound-wave">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="btn-back"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Score Cards -->
+    <div class="score-3d">
+      <div class="score-3d-card">
+        <div class="score-3d-icon">🎯</div>
+        <div class="score-3d-label">SCORE</div>
+        <div class="score-3d-value" id="score">0</div>
+      </div>
+      <div class="score-3d-card">
+        <div class="score-3d-icon">🏆</div>
+        <div class="score-3d-label">BEST</div>
+        <div class="score-3d-value" id="best">0</div>
+      </div>
+      <div class="score-3d-card">
+        <div class="score-3d-icon">⚡</div>
+        <div class="score-3d-label">STREAK</div>
+        <div class="score-3d-value" id="streak">0</div>
+      </div>
+    </div>
+
+    <!-- Premium Action Buttons -->
+    <div class="premium-actions">
+      <button id="restartBtn" class="premium-btn restart-premium">
+        <i class="fas fa-sync-alt"></i>
+        <span>RESTART</span>
+        <div class="btn-ripple"></div>
+      </button>
+      <button id="magicBtn" class="premium-btn magic-premium">
+        <i class="fas fa-wand-magic"></i>
+        <span>MAGIC</span>
+        <div class="btn-ripple"></div>
+      </button>
+      <button id="skipBtn" class="premium-btn skip-premium">
+        <i class="fas fa-forward-fast"></i>
+        <span>SKIP</span>
+        <div class="btn-ripple"></div>
+      </button>
+    </div>
+
+    <!-- Cool Shortcuts -->
+    <div class="cool-shortcuts">
+      <div class="shortcut-chip">
+        <div class="chip-icon">⌨️</div>
+        <kbd>M</kbd>
+        <span>Magic Mode</span>
+      </div>
+      <div class="shortcut-chip">
+        <div class="chip-icon">⚡</div>
+        <kbd>S</kbd>
+        <span>Skip Level</span>
+      </div>
+      <div class="shortcut-chip">
+        <div class="chip-icon">🔄</div>
+        <kbd>R</kbd>
+        <span>Restart</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="beauty-footer">
+      <div class="footer-text">
+        <i class="fas fa-music"></i> FOLLOW THE BEAT! <i class="fas fa-music"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
