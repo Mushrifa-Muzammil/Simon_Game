@@ -10,6 +10,14 @@ A modern, visually stunning twist on the classic Simon memory game. Test your me
 
 ---
 
+## 📸 Screenshots
+
+| Game Interface | Difficulty & Score Panel |
+|----------------|--------------------------|
+| ![Game Main Screen](Screenshot1.png) | ![Difficulty & Score](Screenshot2.png) |
+
+---
+
 ## ✨ Features
 
 ### 🎯 Core Gameplay
